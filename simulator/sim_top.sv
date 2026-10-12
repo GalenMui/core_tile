@@ -516,6 +516,8 @@ module sim_top #(
         else cycles <= cycles + 1;
     end
 
+    `include "simulator/pipeline_table_dump.svh" // optional for pipeline GUI
+
     initial begin
         string dumpfile;
         start_cycles = 0;

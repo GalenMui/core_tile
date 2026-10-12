@@ -33,7 +33,7 @@ VERI_OPTI_FLAGS = -O2 -CFLAGS "-O2"
 SIM_CPP_SRCS = $(wildcard $(SIM_DIR)/models/cxx/*.cpp)
 SIM_VERILOG_SRCS = $(shell cat $(FILELIST)) $(wildcard $(SIM_DIR)/models/hdl/*.sv)
  
-$(SIM_BIN): $(SIM_CPP_SRCS) bootrom.hex libdisasm $(SIM_DIR)/sim_top.sv
+$(SIM_BIN): $(SIM_CPP_SRCS) bootrom.hex libdisasm $(SIM_DIR)/sim_top.sv $(SIM_DIR)/pipeline_table_dump.svh
 		$(VERILATOR) --cc $(VERI_FLAGS) $(VERI_OPTI_FLAGS) -o $(SIM_BIN)
 		$(MAKE) -C $(VERISIM_DIR)/build -f V$(TOP_MODULE).mk $(SIM_BIN)
 
